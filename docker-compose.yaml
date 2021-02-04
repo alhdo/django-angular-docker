@@ -1,0 +1,18 @@
+version: "3"
+
+services:
+  dj:
+    container_name: dj
+    build: ayomi
+    command: python manage.py runserver 0.0.0.0:80
+    volumes:
+      - ./ayomi:/code
+    ports:
+      - "80:80"
+    environment:
+      - DJANGO_SETTINGS=dev
+  ng:
+    container_name: ng
+    build: ayomi-ui
+    ports:
+      - "8080:80"

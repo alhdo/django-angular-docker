@@ -1,0 +1,18 @@
+<main class="form-signin">
+  <form (ngSubmit)="login({email: email.value, password: password.value})">
+    <img class="mb-4" src="https://getbootstrap.com/docs/5.0/assets/brand/bootstrap-logo.svg" alt="" width="72" height="57">
+    <h1 class="h3 mb-3 fw-normal">Please sign in</h1>
+    <h6 *ngIf="isError" class="text-danger">Please check your credentials</h6>
+    <label for="inputEmail" class="visually-hidden">Email address</label>
+    <input #email type="email" id="inputEmail" value="castroalhdo@gmail.com" class="form-control" placeholder="Email address" required="" autofocus="">
+    <label for="inputPassword" class="visually-hidden">Password</label>
+    <input #password type="password" id="inputPassword" value="password" class="form-control" placeholder="Password" required="">
+    <div class="checkbox mb-3">
+      <label>
+        <input type="checkbox" value="remember-me"> Remember me
+      </label>
+    </div>
+    <button [disabled]="isProcessing" class="w-100 btn btn-lg btn-primary" type="submit">Sign in</button>
+    <p class="mt-5 mb-3 text-muted">© Alessandro OSIAS</p>
+  </form>
+</main>

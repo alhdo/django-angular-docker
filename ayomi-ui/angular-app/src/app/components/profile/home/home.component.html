@@ -1,0 +1,65 @@
+<div class="col-md-5 col-lg-4 order-md-last">
+  <h4 class="d-flex justify-content-between align-items-center mb-3">
+    <span class="text-muted">Profile</span>
+    <span class="badge bg-secondary rounded-pill"></span>
+  </h4>
+  <ul class="list-group mb-3">
+    <li class="list-group-item d-flex justify-content-between lh-sm">
+      <div>
+        <h6 class="my-0">First name</h6>
+        <small class="text-muted">{{user.first_name}}</small>
+      </div>
+    </li>
+    <li class="list-group-item d-flex justify-content-between lh-sm">
+      <div>
+        <h6 class="my-0">Last Name</h6>
+        <small class="text-muted">{{ user.last_name}}</small>
+      </div>
+
+    </li>
+    <li class="list-group-item d-flex justify-content-between lh-sm">
+      <div>
+        <h6 class="my-0">Email</h6>
+        <small class="text-muted">{{ user.email}}</small>
+      </div>
+    </li>
+    <li class="list-group-item d-flex justify-content-between bg-light">
+      <div class="text-success">
+        <h6 class="my-0">Username</h6>
+        <small>{{ user.username }}</small>
+      </div>
+    </li>
+    <li class="list-group-item d-flex justify-content-between">
+      <button type="button" class="btn btn-secondary" (click)="open(content)">Modifier ses informations</button>
+    </li>
+
+  </ul>
+
+
+</div>
+
+<ng-template #content let-modal>
+  <div class="modal-header">
+    <h4 class="modal-title" id="modal-basic-title">Profile update</h4>
+    <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')">
+      <span aria-hidden="true">&times;</span>
+    </button>
+  </div>
+  <div class="modal-body">
+    <form (ngSubmit)="updateUserEmail(email.value)">
+      <div class="row">
+        <div class="form-group col-12">
+          <label for="inputEmail" class="text-left">Email address</label>
+          <input #email type="email" id="inputEmail" [value]="this.user.email" class="form-control" placeholder="Email address" required="" autofocus="">
+
+        </div>
+        <div class="form-group col-12">
+          <button type="submit" class="btn btn-outline-dark">Enregistrer</button>
+
+        </div>
+      </div>
+
+    </form>
+  </div>
+</ng-template>
+
